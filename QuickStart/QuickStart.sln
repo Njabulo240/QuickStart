@@ -21,8 +21,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.Contracts", "Servic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{64B6B4B4-3787-42F8-B07A-D22DF823AB2F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmailService", "EmailService\EmailService.csproj", "{493B0AE5-D276-430C-B87C-6C6F725EDBBA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,10 +63,6 @@ Global
 		{64B6B4B4-3787-42F8-B07A-D22DF823AB2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64B6B4B4-3787-42F8-B07A-D22DF823AB2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64B6B4B4-3787-42F8-B07A-D22DF823AB2F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{493B0AE5-D276-430C-B87C-6C6F725EDBBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{493B0AE5-D276-430C-B87C-6C6F725EDBBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{493B0AE5-D276-430C-B87C-6C6F725EDBBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{493B0AE5-D276-430C-B87C-6C6F725EDBBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
