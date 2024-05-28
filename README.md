@@ -39,6 +39,17 @@ ___
 	2. run 'npm install' from the project with package.json - Restore npm packages
 	3. Try running the application again - Test to make sure it all works
 
+## Login
+
+LOGIN WITH USERNAME OR EMAIL ADDRESS
+> * **Default Administrator Account**
+>   * Username: admin001
+>   * Email:    admin001@matech.com
+>   * Password: AdminPassword123
+> * **Default Standard Account**
+>   * Username: user002
+>   * Email:    user002@matech.com
+>   * Password: UserPassword123
 
 *	For bug reports open an [issue on github](https://github.com/njabulo240/QuickStart/issues)
 

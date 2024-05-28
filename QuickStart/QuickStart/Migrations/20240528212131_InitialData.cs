@@ -229,8 +229,8 @@ namespace QuickStart.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "DateCreated", "Discriminator", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "01c97ec1-310d-476f-a962-e85c32d0b467", null, new DateTime(2015, 10, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), "UserRole", "User", "USER" },
-                    { "4e927149-5977-4e59-920d-b9afa9e22f13", null, new DateTime(2015, 10, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), "UserRole", "Admin", "ADMIN" }
+                    { "4bfe9568-213c-45a5-8af2-0d6e75867c4b", null, new DateTime(2015, 10, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), "UserRole", "User", "USER" },
+                    { "ee3ccdcc-ac34-4e9c-8d62-360a2d557efe", null, new DateTime(2015, 10, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), "UserRole", "Admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(

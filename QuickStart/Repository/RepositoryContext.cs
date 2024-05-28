@@ -58,6 +58,7 @@ namespace Repository
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new AccountConfiguration());
             modelBuilder.ApplyConfiguration(new RoleConfiguration());
+            //  modelBuilder.ApplyConfiguration(new UserConfiguration());
         }
         public DbSet<AuditLog> AuditLogs { get; set; } = default!;
         public DbSet<Customer>? Customers { get; set; }

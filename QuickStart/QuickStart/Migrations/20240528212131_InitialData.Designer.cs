@@ -12,7 +12,7 @@ using Repository;
 namespace QuickStart.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20240528122850_InitialData")]
+    [Migration("20240528212131_InitialData")]
     partial class InitialData
     {
         /// <inheritdoc />
@@ -380,14 +380,14 @@ namespace QuickStart.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4e927149-5977-4e59-920d-b9afa9e22f13",
+                            Id = "ee3ccdcc-ac34-4e9c-8d62-360a2d557efe",
                             Name = "Admin",
                             NormalizedName = "ADMIN",
                             DateCreated = new DateTime(2015, 10, 13, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = "01c97ec1-310d-476f-a962-e85c32d0b467",
+                            Id = "4bfe9568-213c-45a5-8af2-0d6e75867c4b",
                             Name = "User",
                             NormalizedName = "USER",
                             DateCreated = new DateTime(2015, 10, 13, 0, 0, 0, 0, DateTimeKind.Unspecified)

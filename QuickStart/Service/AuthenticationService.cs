@@ -50,7 +50,7 @@ namespace Service
             var user = await _userManager.FindByNameAsync(userForAuthentication.UserName);
 
             if (user == null)
-                return new AuthResponseDto { ErrorMessage = "Invalid Authentication" };
+                return new AuthResponseDto { ErrorMessage = "Invalid Authentication hhhhh" };
 
             if (!await _userManager.CheckPasswordAsync(user, userForAuthentication.Password))
             {

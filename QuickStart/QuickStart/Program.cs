@@ -1,3 +1,4 @@
+using Entities.Identity;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -41,6 +42,23 @@ builder.Services.AddControllers()
     .AddApplicationPart(typeof(QuickStart.Presentation.AssemblyReference).Assembly);
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var loggerFactory = services.GetRequiredService<ILoggerFactory>();
+    try
+    {
+        var userManager = services.GetRequiredService<UserManager<User>>();
+        await SeedingUsers.SeedUsers(userManager);
+    }
+    catch (Exception ex)
+    {
+        var logger = loggerFactory.CreateLogger<Program>();
+        logger.LogError(ex, "An error occurred during user seeding");
+    }
+}
+
 
 app.UseExceptionHandler(opt => { });
 

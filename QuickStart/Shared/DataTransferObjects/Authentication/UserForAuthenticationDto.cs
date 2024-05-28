@@ -8,6 +8,5 @@ namespace Shared.DataTransferObjects.Authentication
         public string? UserName { get; init; }
         [Required(ErrorMessage = "Password name is required")]
         public string? Password { get; init; }
-        public string? ClientURI { get; set; }
     }
 }
