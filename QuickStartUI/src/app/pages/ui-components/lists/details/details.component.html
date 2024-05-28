@@ -1,0 +1,100 @@
+<mat-card class="cardWithShadow theme-card">
+  <mat-card-header>
+    <mat-card-title class="m-b-0">Customer details</mat-card-title>
+    <span class="flex-1-auto"></span>
+
+    <button mat-flat-button color="primary" matTooltipPosition="left" class="m-l-8" matTooltipHideDelay="100000"
+      (click)="close()">
+      <mat-icon>close</mat-icon> Close
+    </button>
+  </mat-card-header>
+  <mat-card-content class="b-t-1">
+    <div class="row">
+      <div class="col-lg-6">
+        <!-- ------------------------------------------------------------------------- -->
+        <!-- basic -->
+        <!-- ------------------------------------------------------------------------- -->
+
+        <mat-card class="b-1 shadow-none">
+          <mat-card-header>
+            <mat-card-title>Basic information</mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="b-t-1">
+            <mat-list>
+              <mat-list-item>
+                <span matListItemTitle class="f-s-16 f-w-600">Full Name</span>
+                <span matListItemLine class="mat-body-1">{{customer?.firstName}} {{customer?.lastName}}</span>
+              </mat-list-item>
+              <mat-list-item>
+                <span matListItemTitle class="f-s-16 f-w-600">Date of birth</span>
+                <span matListItemLine class="mat-body-1">{{customer?.dateOfBirth | date}}</span>
+              </mat-list-item>
+            </mat-list>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div class="col-lg-6">
+
+
+        <mat-card class="b-1 shadow-none">
+          <mat-card-header>
+            <mat-card-title>Address</mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="b-t-1">
+            <mat-list>
+              <mat-list-item>
+                <span matListItemTitle class="f-s-16 f-w-600">Resident address</span>
+                <span matListItemLine class="mat-body-1">{{customer?.address}}</span>
+              </mat-list-item>
+              <mat-list-item>
+                <span matListItemTitle class="f-s-16 f-w-600">Country</span>
+                <span matListItemLine class="mat-body-1">{{customer?.country}}</span>
+              </mat-list-item>
+            </mat-list>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div class="col-12">
+
+        <mat-card class="b-1 shadow-none">
+          <mat-card-header>
+            <mat-card-title>Accounts ({{customer?.accountCount}})</mat-card-title>
+            <span class="flex-1-auto"></span>
+
+            <button mat-flat-button color="primary" matTooltipPosition="left" class="m-l-8" matTooltipHideDelay="100000"
+              (click)="addAccount(customer.id)">
+              <mat-icon>add</mat-icon> <span fxHide.xs>Create new account </span>
+            </button>
+          </mat-card-header>
+          <mat-card-content class="b-t-1">
+
+            <div class="row">
+              <div class="col-sm-6 col-lg-4" *ngFor="let item of accounts">
+                <mat-card class="b-1 shadow-none">
+                  <mat-card-header>
+                    <mat-card-title>Account: {{item.accountType}}</mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content class="b-t-1">
+
+                    <mat-list>
+                      <mat-list-item>
+                        <span matListItemTitle class="f-s-16 f-w-600">Created</span>
+                        <span matListItemLine class="mat-body-1">{{item.dateCreated | date: 'medium'}}</span>
+                      </mat-list-item>
+                    </mat-list>
+                    <button mat-flat-button color="warn" class="m-t-8" (click)="DeleteCustomer(item.id)">
+                      Delete
+                    </button>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+            </div>
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

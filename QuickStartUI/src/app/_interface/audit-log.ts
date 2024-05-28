@@ -1,0 +1,34 @@
+export interface AuditLogDto {
+    entityName: string
+    action: string
+    timestamp: Date
+    changes: string
+}
+
+export interface YearAuditResultDto {
+    totalYearAudit: number;
+    increasePercentage: number;
+  }
+  export interface MonthAuditResultDto {
+    totalMonthAudit: number;
+    increasePercentage: number;
+  }
+
+  export interface MonthDto {
+    month: string;
+  }
+
+  export interface DayTotalDto {
+    dayDate: string;
+    totalAudit: number;
+  }
+  
+  export interface MonthTotalDto {
+    month: string;
+    dayTotals: DayTotalDto[];
+  }
+
+  export interface WeekAuditResultDto {
+    totalWeekAudit: number;
+    increasePercentage: number;
+  }

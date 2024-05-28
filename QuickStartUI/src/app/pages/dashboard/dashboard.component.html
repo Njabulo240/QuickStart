@@ -1,0 +1,84 @@
+<div class="row" fxHide.xs>
+  <div class="col-sm-6 col-lg-4">
+    <mat-card class="cardWithShadow bg1">
+      <mat-card-content class="p-24 center-content">
+        <div class="row">
+          <img src="../../../assets/images/backgrounds/users.png" class="mr-8" width="80" height="80" alt="User Image">
+          <!-- User image -->
+          <div class="column">
+            <mat-card-title>
+              Users
+            </mat-card-title>
+            <div class="row m-t-24">
+              <div class="col-7">
+                <h4 class="mat-headline-5">{{totalUsers | number }}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="col-sm-6 col-lg-4">
+    <mat-card class="cardWithShadow bg2">
+      <mat-card-content class="p-24 center-content">
+        <div class="row">
+          <img src="../../../assets/images/backgrounds/customers.png" class="mr-8" width="80" height="80"
+            alt="User Image"> <!-- User image -->
+          <div class="column">
+            <mat-card-title>Customers</mat-card-title>
+            <div class="row m-t-24">
+              <div class="col-7">
+                <h4 class="mat-headline-5">{{totalCustomers | number }}</h4>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="col-sm-6 col-lg-4">
+    <mat-card class="cardWithShadow bg4">
+      <mat-card-content class="p-24 center-content">
+        <div class="row">
+          <img src="../../../assets/images/backgrounds/events.png" class="mr-8" width="80" height="80" alt="User Image">
+          <!-- User image -->
+          <div class="column">
+            <mat-card-title>Log Events</mat-card-title>
+            <div class="row m-t-24">
+              <div class="col-7">
+                <h4 class="mat-headline-5">{{totalLogs | number }}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <mat-card class="cardWithShadow">
+      <mat-card-content class="p-24">
+
+        <div class="d-flex w-100">
+          <mat-card-title>Log Overview</mat-card-title>
+          <div class="m-l-auto">
+            <mat-form-field class="theme-select" appearance="outline">
+              <mat-select [(ngModel)]="selectedMonth" (selectionChange)="onMonthSelectionChange()">
+                <mat-option *ngFor="let month of months" [value]="month.month">
+                  {{ month.month }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <apx-chart [series]="salesOverviewChart.series" [dataLabels]="salesOverviewChart.dataLabels"
+          [chart]="salesOverviewChart.chart" [legend]="salesOverviewChart.legend" [xaxis]="salesOverviewChart.xaxis"
+          [yaxis]="salesOverviewChart.yaxis" [grid]="salesOverviewChart.grid" [stroke]="salesOverviewChart.stroke"
+          [tooltip]="salesOverviewChart.tooltip" [plotOptions]="salesOverviewChart.plotOptions"></apx-chart>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

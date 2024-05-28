@@ -1,0 +1,42 @@
+<mat-card class="cardWithShadow theme-card modal-card">
+  <mat-card-header>
+    <mat-card-title class="m-b-0">Update customer</mat-card-title>
+    <span class="flex-1-auto"></span>
+    <button mat-flat-button matTooltipPosition="left" class="m-l-8" matTooltipHideDelay="100000"
+      (click)="closeModal()">
+      <mat-icon color="warn">close</mat-icon>
+    </button>
+  </mat-card-header>
+  <mat-card-content class="b-t-1">
+    <form [formGroup]="dataForm" autocomplete="off" novalidate (ngSubmit)="createData(dataForm.value)">
+
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" />
+      </mat-form-field>
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" />
+      </mat-form-field>
+      <mat-form-field class="w-100" appearance="outline">
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date of birth" formControlName="dateOfBirth"
+          id="dateOfBirth" readonly (click)="picker.open()">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="address" />
+      </mat-form-field>
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Country</mat-label>
+        <input matInput formControlName="country" />
+      </mat-form-field>
+
+      <button mat-flat-button color="primary" matTooltip="Info about the action" [disabled]="!dataForm.valid">
+        Update
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>
