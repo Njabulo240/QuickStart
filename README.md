@@ -1,7 +1,5 @@
 # **Matech QuickStart** - ASPNET Core 8 & Angular 17 
 
-[![MIT license](https://github.com/njabulo240/QuickStart/master/LICENSE)]
-
 **ASP.NET Core / Angular** starting point project with SOLID Architecture, Advanced Authentication & Authorization, user and role management, and other useful services for **Quick Application Development**.
 
 🚀The mission of developing an ASP.NET Quick Start Template is to empower developers by providing a comprehensive, efficient, and user-friendly foundation for building robust web applications. This template aims to streamline the development process, enhance productivity, and ensure best practices are adhered to from the outset. Our commitment is to facilitate rapid development while maintaining high standards of code quality, security, and performance.
@@ -41,14 +39,13 @@ ___
     1. run 'dotnet restore' from the two project folders - Restore nuget packages
 	2. run 'npm install' from the project with package.json - Restore npm packages
 	3. Try running the application again - Test to make sure it all works
-*	When running the client(angular) project on a different address/domain from the backend, configure the baseUrl of the client to match that of the server.
-	You do this from environment.ts in the ClientApp/Angular project.
+
 
 *	For bug reports open an [issue on github](https://github.com/njabulo240/QuickStart/issues)
 
 ## Documentation
 
-*   [Overview of QuickApp](https://www.ebenmonney.com/quickapp)
+*   [Overview of Matech QuickStart](https://www.matechcoding.com)
 *   [Conceptual overview of what is ASP.NET Core](https://go.microsoft.com/fwlink/?LinkId=518008)
 *   [Working with Data](https://docs.microsoft.com/en-us/ef/#pivot=efcore)
 *   [Angular 17 documentation overview](https://angular.io/guide/quickstart)
