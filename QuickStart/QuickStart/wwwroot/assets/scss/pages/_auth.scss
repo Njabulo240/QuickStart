@@ -77,3 +77,16 @@
 .mb-4{
   margin: 1rem;
 }
+
+.password-container {
+  display: flex;
+  align-items: center;
+}
+
+.password-container input {
+  flex: 1;
+}
+
+.password-toggle-button {
+  margin-left: 8px; 
+}

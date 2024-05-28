@@ -11,7 +11,6 @@
 
 [LIVE DEMO](https://matechdemo.azurewebsites.net)
 
-[Sponsor this project](https://github.com/sponsors/njabulo240) and get access to the private repos of Matech QuickStart premium.
 ___
 
 ## This application consists of:
@@ -56,7 +55,6 @@ ___
 ## Contribution
 
 Matech QuickStart is actively maintained on [GitHub](https://github.com/njabulo240/QuickStart). You can support it by
-*   [Sponsoring on GitHub](https://github.com/sponsors/njabulo240)
 *   Encouraging the developers by [starring it](https://github.com/njabulo240/QuickStart)
 *   Submitting your changes/improvements/features using pull requests
 *   Suggesting ideas or areas of improvements
