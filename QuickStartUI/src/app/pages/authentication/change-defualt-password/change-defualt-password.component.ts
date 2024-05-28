@@ -13,6 +13,7 @@ import { DialogService } from 'src/app/shared/services/dialog.service';
 })
 export class ChangeDefualtPasswordComponent implements OnInit {
   passwordForm: FormGroup | any;
+  hidePassword = true;
 
   constructor(
     private authService: AuthenticationService,
@@ -80,4 +81,8 @@ export class ChangeDefualtPasswordComponent implements OnInit {
     this.authService.logout();
     this.router.navigate(['/authentication/login']);
   };
+
+  togglePasswordVisibility() {
+    this.hidePassword = !this.hidePassword;
+  }
 }

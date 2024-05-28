@@ -30,8 +30,7 @@ export class AuditsComponent implements OnInit, AfterViewInit {
         this.dataSource.data = res as AuditLogDto[];
       },
       (err: HttpErrorResponse) => {
-        this.errorMessage = err.message;
-        this.showError = true;
+        console.log(err);
       }
     );
   }

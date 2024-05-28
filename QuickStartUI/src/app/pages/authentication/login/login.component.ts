@@ -3,10 +3,12 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserForAuthenticationDto, TokenDto } from 'src/app/_interface/user';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { DialogService } from 'src/app/shared/services/dialog.service';
 import { ChangeDefualtPasswordComponent } from '../change-defualt-password/change-defualt-password.component';
+
 
 @Component({
   selector: 'app-login',
@@ -23,7 +25,7 @@ export class AppSideLoginComponent {
     private route: ActivatedRoute,
     private dialogserve: DialogService,
     private dialog: MatDialog,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -51,7 +53,7 @@ export class AppSideLoginComponent {
     const login = { ...loginFormValue };
     const userForAuth: UserForAuthenticationDto = {
       userName: login.username,
-      password: login.password
+      password: login.password,
     };
     this.authService
       .loginUser('api/authentication/login', userForAuth)

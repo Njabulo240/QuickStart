@@ -43,7 +43,7 @@ export class RolesComponent implements OnInit {
         
       },
       (err) => {
-        this.toastr.error(err);
+        console.log(err);
       })
     }
 

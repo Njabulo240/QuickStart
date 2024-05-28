@@ -21,6 +21,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './core/loading.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { ErrorHandlerService } from './shared/services/error-handler.service';
+import { ServerErrorComponent } from './errors/server-error/server-error.component';
 
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -36,7 +37,8 @@ export function tokenGetter() {
     HeaderComponent,
     BrandingComponent,
     AppNavItemComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ServerErrorComponent
   ],
   imports: [
     BrowserModule,

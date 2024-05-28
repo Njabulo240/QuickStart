@@ -64,7 +64,7 @@ export class AppListsComponent implements OnInit, AfterViewInit {
         this.dataSource.data = res as CustomerDto[];
       },
       (err) => {
-        this.toastr.success(err);
+        console.log(err);
       }
     );
   }

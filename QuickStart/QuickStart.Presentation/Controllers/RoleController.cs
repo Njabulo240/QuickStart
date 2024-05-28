@@ -16,6 +16,7 @@ namespace QuickStart.Presentation.Controllers
         [HttpGet]
         public async Task<IActionResult> GetRoles()
         {
+            //  throw new Exception("Exception");
             var roles = await _service.RoleService.GetAllRoles();
             return Ok(roles);
         }

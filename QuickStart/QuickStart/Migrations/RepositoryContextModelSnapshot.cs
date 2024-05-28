@@ -223,29 +223,6 @@ namespace QuickStart.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Entities.Models.Notification", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("NotificationId");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Message")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Severity")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Notifications");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -400,14 +377,14 @@ namespace QuickStart.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "60cb73c5-7bf0-48d2-8918-245e9a81c633",
+                            Id = "4e927149-5977-4e59-920d-b9afa9e22f13",
                             Name = "Admin",
                             NormalizedName = "ADMIN",
                             DateCreated = new DateTime(2015, 10, 13, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = "c7cf6033-8cce-4bac-8099-937647a5c686",
+                            Id = "01c97ec1-310d-476f-a962-e85c32d0b467",
                             Name = "User",
                             NormalizedName = "USER",
                             DateCreated = new DateTime(2015, 10, 13, 0, 0, 0, 0, DateTimeKind.Unspecified)

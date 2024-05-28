@@ -65,9 +65,6 @@ namespace Repository
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-
-
-
             var modifiedEntities = ChangeTracker.Entries()
                 .Where(e => e.State == EntityState.Added
                 || e.State == EntityState.Modified

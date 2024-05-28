@@ -1,6 +1,3 @@
-using EmailService.Config;
-using EmailService.Contracts;
-using EmailService.Services;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -34,12 +31,6 @@ builder.Services.ConfigureIdentity();
 builder.Services.ConfigureJWT(builder.Configuration);
 builder.Services.ConfigureSwagger();
 
-var emailConfig = builder.Configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>();
-builder.Services.AddSingleton(emailConfig);
-
-builder.Services.AddScoped<IEmailResetPassword, EmailResetPassword>();
-builder.Services.AddScoped<IEmailConfirm, EmailConfirm>();
-builder.Services.AddScoped<IEmailNotification, EmailNotification>();
 
 builder.Services.Configure<DataProtectionTokenProviderOptions>(opt =>
     opt.TokenLifespan = TimeSpan.FromHours(2));

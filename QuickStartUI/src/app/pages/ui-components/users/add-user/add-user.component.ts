@@ -31,7 +31,7 @@ export class AddUserComponent implements OnInit {
       firstName: new FormControl('', [Validators.required, Validators.maxLength(60)]),
       lastName: new FormControl('', [Validators.required, Validators.maxLength(60)]),
       userName: new FormControl('', [Validators.required, Validators.maxLength(60)]),
-      email: new FormControl('', [Validators.required, Validators.maxLength(100)])
+      email: new FormControl('', [Validators.required, Validators.email]),
     });
 
     this.getRoles();
@@ -69,7 +69,7 @@ export class AddUserComponent implements OnInit {
     this.repoService.create(apiUri, data).subscribe(
       (res) => {
 
-        this.dialogserve.openSuccessDialog("The password is sent to the user's email address")
+        this.dialogserve.openSuccessDialog("The default password for the user is 'Password.321'.")
         .afterClosed()
         .subscribe((res) => {
           this.dialogserve.openSuccessDialog("The user has been added successfully.")
