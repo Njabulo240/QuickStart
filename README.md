@@ -63,5 +63,5 @@ Matech QuickStart is actively maintained on [GitHub](https://github.com/njabulo2
 
 ## License
 
-Released under the [MIT License](https://github.com/njabulo240/QuickStart/master/LICENSE).
+Released under the [MIT License](https://github.com/Njabulo240/QuickStart/blob/master/LICENSE).
 
