@@ -40,28 +40,5 @@ namespace QuickStart.Presentation.Controllers
             return Ok(result);
         }
 
-        [HttpGet("totalLatestYearAudit")]
-        public async Task<ActionResult<YearAuditResultDto>> GetTotalLatestYear()
-        {
-            var result = await _service.AuditService.GetTotalLatestYearAuditAsync(trackChanges: false);
-            return Ok(result);
-        }
-
-        [HttpGet("totalLatestMonth")]
-        public async Task<ActionResult<MonthAuditResultDto>> GetTotalLatestMonth()
-        {
-            var result = await _service.AuditService.GetTotalLatestMonthAuditAsync(trackChanges: false);
-            return Ok(result);
-        }
-
-        [HttpGet("totalLatestWeekAudit")]
-        public async Task<ActionResult<WeekAuditResultDto>> GetTotalLatestWeekAudit()
-        {
-
-            var result = await _service.AuditService.GetTotalLatestWeekAuditAsync(trackChanges: false);
-            return Ok(result);
-
-        }
-
     }
 }
