@@ -86,6 +86,7 @@ LOGIN WITH USERNAME OR EMAIL ADDRESS
 *	For bug reports open an [issue on github](https://github.com/njabulo240/QuickStart/issues)
 
 ### Angular Application
+Drag and drop **QuickStartUI** folder into VS code IDE 
 
 ### NPM Packages Install
     ```bash
