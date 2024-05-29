@@ -9,7 +9,7 @@ using QuickStart.Presentation.ActionFilters;
 using Service.JwtFeatures;
 
 var builder = WebApplication.CreateBuilder(args);
-// logger
+
 LogManager.Setup().LoadConfigurationFromFile(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
 
 builder.Services.ConfigureCors();
