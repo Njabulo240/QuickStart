@@ -26,18 +26,50 @@ ___
 
 ## Installation
 
-*  Clone the [Git Repository](https://github.com/njabulo240/QuickStart.git) and edit with your favorite editor. e.g. Visual Studio, Visual Studio Code
+* [OPTION 1] Clone the [Git Repository](https://github.com/njabulo240/QuickStart.git) and edit with your favorite editor. e.g. Visual Studio, Visual Studio Code.
+
+* [OPTION 2] Download the Zip folder from github
+
+When you open the downloaded zip file, you will see two folders
+
+<img src="/img/14.png"/>
+
+- **QuickStart** folder contains the server side ASP.NET Core solution and configured to work with Visual Studio.
+- **QuickStartUI** folder contains the Angular UI application which is configured to work with the angular-cli.
+
+### Merging Client and Server Solutions
+Client and Server solutions are designed to work separately by default.
 
 
-## Installation Notes
+## Deploy Database 
 
-*   When creating a new project please wait for all dependencies to be restored; "dotnet restore" for asp.net project & "npm install" for angular project.
-    When using VisualStudio this is automatic, check the output window or status bar to know that the package/dependencies restore process is complete before launching your program for the first time.
-*   If you get any errors, consider running manually the steps to build the project and note where the errors    occur.
-    Open command prompt and do the below steps:  
-    1. run 'dotnet restore' from the two project folders - Restore nuget packages
-	2. run 'npm install' from the project with package.json - Restore npm packages
-	3. Try running the application again - Test to make sure it all works
+#### Connection String
+Open appsettings.json in QuickStart project and change the Default connection string if you want:
+
+    ```json
+    {
+       "ConnectionStrings": {
+        "sqlConnection": "server=.; database=QuickStartDb; Integrated Security=true;TrustServerCertificate=true"
+      },
+    }
+    ```
+
+### Migrations
+
+Use Entity Framework Core's built-in tools for migrations. Open Package Manager Console in Visual Studio, set QuickStart as the Default Project and run the Update-Database command as shown below:
+
+<img src="/img/16.png" />
+
+This command will create your database. Initial data will be inserted when you run the QuickStart project. You can open SQL Server Management Studio to check if database is created:
+
+<img src="/img/11.png" />
+
+You can use EF console commands for development and Migrator.exe for production. But notice that; Migrator.exe supports running migrations in multiple databases at once, which can be useful in development/production for multi tenant applications.
+
+### Run API Host
+Once you've done the configuration, you can run the application. Server side application only contains APIs. When you start the application you will see a login page like below:
+
+<img src="/img/17.png" />
 
 ## Login
 
