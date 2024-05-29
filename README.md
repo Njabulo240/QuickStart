@@ -85,6 +85,55 @@ LOGIN WITH USERNAME OR EMAIL ADDRESS
 
 *	For bug reports open an [issue on github](https://github.com/njabulo240/QuickStart/issues)
 
+### Angular Application
+
+### NPM Packages Install
+    ```bash
+        npm install
+    ```
+it will install the packages. Make sure that there is no error.
+
+
+### How to Run?
+
+After install process now you can run local server- local server port is 'http://localhost:4200' For development start use this commend ng serve
+
+    ```bash
+        ng serve
+    ```
+
+## Hosting Angular App Inside ASP.NET API
+
+To merge and host the Angular application inside the ASP.NET Core API, follow these steps:
+
+1. **Build the Angular Application**:
+    - Navigate to the `QuickStartUI` folder.
+    - Run `ng build --prod` to build the Angular application. This will create a `dist` folder containing the compiled Angular files.
+
+2. **Move Built Files to ASP.NET Core Project**:
+    - Copy the contents of the `dist` folder.
+    - Paste these contents into a new folder named `wwwroot` inside the `QuickStart` folder. The `wwwroot` folder is the default location for static files in an ASP.NET Core application.
+
+3. **Configure ASP.NET Core to Serve Angular App**:
+    - Open the `Program.cs` file in the `QuickStart` folder.
+    - Ensure that the `Configure` method is set up to serve static files and handle fallback routing for the Angular application:
+    
+    ```csharp
+        var builder = WebApplication.CreateBuilder(args);
+
+        app.UseRouting();
+        app.MapFallbackToController("Index", "Fallback");
+
+    ```
+
+4. **Run the Combined Solution**:
+    - Open the `QuickStart` solution in Visual Studio.
+    - Run the solution. The ASP.NET Core API should now serve the Angular application.
+
+By following these steps, you will successfully host the Angular application inside the ASP.NET Core API, creating a unified solution.
+
+
+
 ## Documentation
 
 *   [Overview of Matech QuickStart](https://www.matechcoding.com)
