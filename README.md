@@ -5,10 +5,6 @@
 🚀The mission of developing an ASP.NET Quick Start Template is to empower developers by providing a comprehensive, efficient, and user-friendly foundation for building robust web applications. This template aims to streamline the development process, enhance productivity, and ensure best practices are adhered to from the outset. Our commitment is to facilitate rapid development while maintaining high standards of code quality, security, and performance.
 
 
-💝If you've found Matech QuickStart helpful, kindly consider [becoming a sponsor](https://github.com/sponsors/njabulo240) . Even a small amount goes a long way to keep the project alive.
-
-👍🏼As a [sponsor](https://github.com/sponsors/njabulo240) you will gain access to the private repos of **Matech QuickStart premium** which have more advanced features, and also priority email support.
-
 [LIVE DEMO](https://matechdemo.azurewebsites.net)
 
 ___
