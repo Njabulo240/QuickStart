@@ -71,5 +71,30 @@ namespace QuickStart.Presentation.Controllers
 
             return StatusCode(201);
         }
+
+        [HttpPost("ForgotPassword")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
+        public async Task<IActionResult> forgetPassword([FromBody] ForgotPasswordDto forgotPassword)
+        {
+
+            var result = await _service.AuthenticationService.ForgetPassword(forgotPassword);
+
+            return Ok(result);
+        }
+
+        [HttpPost("ResetPassword")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto resetPassword)
+        {
+            var result = await _service.AuthenticationService.ResetPassword(resetPassword);
+
+            if (!result.Succeeded)
+            {
+                var errors = result.Errors.Select(e => e.Description);
+                return BadRequest(new { Errors = errors });
+            }
+
+            return StatusCode(201);
+        }
     }
 }

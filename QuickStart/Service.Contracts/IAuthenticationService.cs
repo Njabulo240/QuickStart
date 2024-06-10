@@ -9,6 +9,8 @@ namespace Service.Contracts
         Task<AuthResponseDto> ValidateUser(UserForAuthenticationDto userForAuthentication);
         Task<IdentityResult> ChangePassword(ChangePasswordDto changePassword);
         Task<IdentityResult> ChangeDefaultPassword(string userName, ChangeDefaultPasswordDto changePassword);
+        Task<IdentityResult> ForgetPassword(ForgotPasswordDto forgotPassword);
+        Task<IdentityResult> ResetPassword(ResetPasswordDto resetPassword);
 
     }
 }

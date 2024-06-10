@@ -1,3 +1,5 @@
+
+using EmailService;
 using Entities.Identity;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
@@ -37,6 +39,11 @@ builder.Services.Configure<DataProtectionTokenProviderOptions>(opt =>
     opt.TokenLifespan = TimeSpan.FromHours(2));
 
 builder.Services.AddScoped<JwtHandler>();
+
+var emailConfig = builder.Configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>();
+builder.Services.AddSingleton(emailConfig);
+
+builder.Services.AddScoped<IEmailSender, EmailSender>();
 
 builder.Services.AddControllers()
     .AddApplicationPart(typeof(QuickStart.Presentation.AssemblyReference).Assembly);

@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using Contracts;
+using EmailService;
 using Entities.Exceptions.Authentication;
 using Entities.Identity;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Configuration;
 using Service.Contracts;
 using Service.JwtFeatures;
@@ -18,17 +20,20 @@ namespace Service
         private readonly UserManager<User> _userManager;
         private readonly IConfiguration _configuration;
         private readonly JwtHandler _jwtHandler;
+        private readonly IEmailSender _emailSender;
 
         private User? _user;
 
         public AuthenticationService(ILoggerManager logger, IMapper mapper,
-            UserManager<User> userManager, IConfiguration configuration, JwtHandler jwtHandler)
+            UserManager<User> userManager, IConfiguration configuration, JwtHandler jwtHandler,
+            IEmailSender emailSender)
         {
             _logger = logger;
             _mapper = mapper;
             _userManager = userManager;
             _configuration = configuration;
             _jwtHandler = jwtHandler;
+            _emailSender = emailSender;
 
         }
 
@@ -98,6 +103,37 @@ namespace Service
 
             var resetPassResult = await _userManager.ResetPasswordAsync(user, token, changePassword.Password);
 
+            return resetPassResult;
+        }
+
+        public async Task<IdentityResult> ForgetPassword(ForgotPasswordDto forgotPassword)
+        {
+            var user = await _userManager.FindByEmailAsync(forgotPassword.Email);
+            if (user == null)
+                throw new EmailBadRequest();
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var param = new Dictionary<string, string?>
+               {
+                  {"token", token },
+                  {"email", forgotPassword.Email }
+               };
+
+            var callback = QueryHelpers.AddQueryString(forgotPassword.ClientURI, param);
+            var message = new Message(new string[] { user.Email }, "Reset password token", callback, null);
+            await _emailSender.SendEmailAsync(message);
+
+            return IdentityResult.Success;
+        }
+
+        public async Task<IdentityResult> ResetPassword(ResetPasswordDto resetPassword)
+        {
+            var user = await _userManager.FindByEmailAsync(resetPassword.Email);
+            if (user == null)
+                throw new EmailBadRequest();
+
+            var resetPassResult = await _userManager.ResetPasswordAsync(user, resetPassword.Token, resetPassword.Password);
+            await _userManager.SetLockoutEndDateAsync(user, new DateTime(2000, 1, 1));
             return resetPassResult;
         }
     }
