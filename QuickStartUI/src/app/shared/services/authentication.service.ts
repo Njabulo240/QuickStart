@@ -6,7 +6,10 @@ import {
   UserForRegistrationDto,
   RegistrationResponseDto,
   UserForAuthenticationDto, TokenDto,
-  ChangePasswordDto, DefaultPasswordDto
+  ChangePasswordDto, DefaultPasswordDto,
+  ForgetPasswordResponseDto,
+  ForgotPasswordDto,
+  ResetPasswordDto
 } from 'src/app/_interface/user';
 import { environment } from 'src/environments/environment.development';
 
@@ -55,6 +58,12 @@ export class AuthenticationService {
     return this.http.post(this.createCompleteRoute(route, environment.apiUrl), body);
   }
 
+  public forgotPassword = (route: string, body: ForgotPasswordDto) => {
+    return this.http.post<ForgetPasswordResponseDto>(this.createCompleteRoute(route, environment.apiUrl), body);
+  }
+  public resetPassword = (route: string, body: ResetPasswordDto) => {
+    return this.http.post(this.createCompleteRoute(route, environment.apiUrl), body);
+  }
 
 
   public loadCurrentUserEmail() {

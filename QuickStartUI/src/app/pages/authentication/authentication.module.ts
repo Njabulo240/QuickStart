@@ -14,6 +14,8 @@ import { AppSideLoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ChangeDefualtPasswordComponent } from './change-defualt-password/change-defualt-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   imports: [
@@ -32,7 +34,9 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
   declarations: [
     AppSideLoginComponent,
     ChangePasswordComponent,
-    ChangeDefualtPasswordComponent
+    ChangeDefualtPasswordComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
   ],
 })
 export class AuthenticationModule {}
