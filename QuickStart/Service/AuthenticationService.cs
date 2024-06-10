@@ -45,6 +45,10 @@ namespace Service
 
             if (result.Succeeded)
                 await _userManager.AddToRolesAsync(user, userForRegistration.Roles);
+
+            var message = new Message(new string[] { user.Email }, "Default Password", "UserName: " + "'" + user.UserName + "'" + ", Password: " + "'" + defaultPassword + "'", null);
+            await _emailSender.SendEmailAsync(message);
+
             return result;
         }
 

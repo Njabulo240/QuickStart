@@ -69,7 +69,7 @@ export class AddUserComponent implements OnInit {
     this.repoService.create(apiUri, data).subscribe(
       (res) => {
 
-        this.dialogserve.openSuccessDialog("The default password for the user is 'Password.321'.")
+        this.dialogserve.openSuccessDialog("The default password is sent to the user's email address")
         .afterClosed()
         .subscribe((res) => {
           this.dialogserve.openSuccessDialog("The user has been added successfully.")
