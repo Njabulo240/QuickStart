@@ -8,6 +8,7 @@ import { UserForAuthenticationDto, TokenDto } from 'src/app/_interface/user';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { DialogService } from 'src/app/shared/services/dialog.service';
 import { ChangeDefualtPasswordComponent } from '../change-defualt-password/change-defualt-password.component';
+import { environment } from 'src/environments/environment.development';
 
 
 @Component({
@@ -54,6 +55,7 @@ export class AppSideLoginComponent {
     const userForAuth: UserForAuthenticationDto = {
       userName: login.username,
       password: login.password,
+      clientURI: environment.clientUrl+'/authentication/forgot-password'
     };
     this.authService
       .loginUser('api/authentication/login', userForAuth)

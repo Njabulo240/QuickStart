@@ -59,10 +59,23 @@ namespace Service
             var user = await _userManager.FindByNameAsync(userForAuthentication.UserName);
 
             if (user == null)
-                return new AuthResponseDto { ErrorMessage = "Invalid Authentication hhhhh" };
+                return new AuthResponseDto { ErrorMessage = "Invalid Request" };
+
+            await _userManager.AccessFailedAsync(user);
+
+            if (await _userManager.IsLockedOutAsync(user))
+            {
+                var content = $"Your account is locked out. To reset the password click this link: {userForAuthentication.ClientURI}";
+                var message = new Message(new string[] { user.Email }, "Locked out account information", content, null);
+
+                await _emailSender.SendEmailAsync(message);
+
+                return new AuthResponseDto { ErrorMessage = "The account is locked out" };
+            }
 
             if (!await _userManager.CheckPasswordAsync(user, userForAuthentication.Password))
             {
+
                 return new AuthResponseDto { ErrorMessage = "Invalid Authentication" };
             }
 
@@ -71,6 +84,8 @@ namespace Service
             var claims = await _jwtHandler.GetClaims(user);
             var tokenOptions = _jwtHandler.GenerateTokenOptions(signingCredentials, claims);
             var token = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
+
+            await _userManager.ResetAccessFailedCountAsync(user);
 
             return new AuthResponseDto { IsAuthSuccessful = true, Token = token };
         }

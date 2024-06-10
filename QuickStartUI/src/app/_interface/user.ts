@@ -26,6 +26,7 @@ export interface TokenDto {
 export interface UserForAuthenticationDto {
     userName: string;
     password: string;
+    clientURI: string;
 }
 
 export interface UserForRegistrationDto {
