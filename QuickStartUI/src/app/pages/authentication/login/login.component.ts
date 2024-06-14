@@ -3,12 +3,11 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { UserForAuthenticationDto, TokenDto } from 'src/app/_interface/user';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { DialogService } from 'src/app/shared/services/dialog.service';
 import { ChangeDefualtPasswordComponent } from '../change-defualt-password/change-defualt-password.component';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 
 @Component({

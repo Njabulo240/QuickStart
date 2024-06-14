@@ -11,7 +11,8 @@ import {
   ForgotPasswordDto,
   ResetPasswordDto
 } from 'src/app/_interface/user';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
+
 
 
 @Injectable({

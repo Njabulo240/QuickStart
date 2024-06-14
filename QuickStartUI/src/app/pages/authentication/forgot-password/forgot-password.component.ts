@@ -8,7 +8,8 @@ import {
 } from 'src/app/_interface/user';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { DialogService } from 'src/app/shared/services/dialog.service';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
+
 
 
 @Component({
