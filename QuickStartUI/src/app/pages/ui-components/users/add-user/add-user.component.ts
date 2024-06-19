@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { UserForRegistrationDto, UserRoleDto } from 'src/app/_interface/user';
+import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { DataService } from 'src/app/shared/services/data.service';
 import { DialogService } from 'src/app/shared/services/dialog.service';
 import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
@@ -24,6 +25,7 @@ export class AddUserComponent implements OnInit {
     private dataService: DataService,
     private toastr: ToastrService,
     private dialogserve: DialogService,
+    private authService: AuthenticationService,
     private Ref: MatDialogRef<AddUserComponent>) {}
 
   ngOnInit() {
@@ -66,8 +68,8 @@ export class AddUserComponent implements OnInit {
     };
 
     const apiUri: string = `api/authentication`;
-    this.repoService.create(apiUri, data).subscribe(
-      (res) => {
+    this.authService.registerUser(apiUri, data).subscribe(
+      (res:any) => {
 
         this.dialogserve.openSuccessDialog("The default password is sent to the user's email address")
         .afterClosed()
@@ -81,8 +83,13 @@ export class AddUserComponent implements OnInit {
         });
  
       },
-      (error) => {
-        this.toastr.error(error);
+      (error:HttpErrorResponse) => {
+        this.dialogserve
+        .openErrorDialog(error.message)
+        .afterClosed()
+        .subscribe((res) => {
+        
+        });
       }
     );
   };

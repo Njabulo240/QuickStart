@@ -5,7 +5,7 @@ namespace Service.Contracts
 {
     public interface IAuthenticationService
     {
-        Task<IdentityResult> RegisterUser(UserForRegistrationDto userForRegistration);
+        Task<RegistrationResponseDto> RegisterUser(UserForRegistrationDto userForRegistration);
         Task<AuthResponseDto> ValidateUser(UserForAuthenticationDto userForAuthentication);
         Task<IdentityResult> ChangePassword(ChangePasswordDto changePassword);
         Task<IdentityResult> ChangeDefaultPassword(string userName, ChangeDefaultPasswordDto changePassword);

@@ -45,13 +45,6 @@ export interface User {
     token: string;
 }
 
-export interface IAddress {
-    firstName: string
-    lastName: string
-    street: string
-    city: string
-    region: string
-  }
 
   export interface UserDetailsDto {
     firstName: string;

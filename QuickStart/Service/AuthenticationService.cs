@@ -37,19 +37,28 @@ namespace Service
 
         }
 
-        public async Task<IdentityResult> RegisterUser(UserForRegistrationDto userForRegistration)
+        public async Task<RegistrationResponseDto> RegisterUser(UserForRegistrationDto userForRegistration)
         {
             var user = _mapper.Map<User>(userForRegistration);
             var defaultPassword = "Password.321";
             var result = await _userManager.CreateAsync(user, defaultPassword);
 
+            var response = new RegistrationResponseDto
+            {
+                IsSuccessfulRegistration = result.Succeeded,
+                Errors = result.Succeeded ? null : result.Errors.Select(e => e.Description).ToList()
+            };
+
             if (result.Succeeded)
+            {
                 await _userManager.AddToRolesAsync(user, userForRegistration.Roles);
 
-            var message = new Message(new string[] { user.Email }, "Default Password", "UserName: " + "'" + user.UserName + "'" + ", Password: " + "'" + defaultPassword + "'", null);
-            await _emailSender.SendEmailAsync(message);
+                var message = new Message(new string[] { user.Email }, "Default Password", "UserName: " + "'" + user.UserName + "'" + ", Password: " + "'" + defaultPassword + "'", null);
+                await _emailSender.SendEmailAsync(message);
+            }
 
-            return result;
+
+            return response;
         }
 
 

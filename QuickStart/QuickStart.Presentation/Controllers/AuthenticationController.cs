@@ -16,17 +16,17 @@ namespace QuickStart.Presentation.Controllers
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> RegisterUser([FromBody] UserForRegistrationDto userForRegistration)
         {
-            var result = await _service.AuthenticationService.RegisterUser(userForRegistration);
-            if (!result.Succeeded)
+            if (userForRegistration == null || !ModelState.IsValid)
+                return BadRequest();
+
+            var response = await _service.AuthenticationService.RegisterUser(userForRegistration);
+
+            if (!response.IsSuccessfulRegistration)
             {
-                foreach (var error in result.Errors)
-                {
-                    ModelState.TryAddModelError(error.Code, error.Description);
-                }
-                return BadRequest(ModelState);
+                return BadRequest(new { IsSuccessfulRegistration = false, Errors = response.Errors });
             }
 
-            return StatusCode(201);
+            return StatusCode(201, new { IsSuccessfulRegistration = true });
         }
 
         [HttpPost("login")]

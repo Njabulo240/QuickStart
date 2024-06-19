@@ -5,15 +5,6 @@ export interface AuditLogDto {
     changes: string
 }
 
-export interface YearAuditResultDto {
-    totalYearAudit: number;
-    increasePercentage: number;
-  }
-  export interface MonthAuditResultDto {
-    totalMonthAudit: number;
-    increasePercentage: number;
-  }
-
   export interface MonthDto {
     month: string;
   }
@@ -28,7 +19,4 @@ export interface YearAuditResultDto {
     dayTotals: DayTotalDto[];
   }
 
-  export interface WeekAuditResultDto {
-    totalWeekAudit: number;
-    increasePercentage: number;
-  }
+

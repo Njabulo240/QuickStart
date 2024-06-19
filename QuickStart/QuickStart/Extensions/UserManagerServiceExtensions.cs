@@ -21,7 +21,7 @@ namespace QuickStart.Extensions
                 o.User.RequireUniqueEmail = true;
 
                 o.Lockout.AllowedForNewUsers = true;
-                o.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(2);
+                o.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
                 o.Lockout.MaxFailedAccessAttempts = 3;
             })
             .AddEntityFrameworkStores<RepositoryContext>()

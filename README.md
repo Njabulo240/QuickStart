@@ -1,8 +1,8 @@
 # **Matech QuickStart** - ASPNET Core 8 & Angular 17 
 
-**ASP.NET Core / Angular** starting point project with SOLID Architecture, Advanced Authentication & Authorization, user and role management, and other useful services for **Quick Application Development**.
+Matech QuickStart is a cutting-edge **ASP.NET Core / Angular / Admin** Starter Project designed for **Quick Application Development**. It features a robust SOLID architecture, advanced authentication and authorization, comprehensive user and role management, and a suite of essential services. This powerful tool is engineered to accelerate your development process and elevate your projects to new heights.
 
-🚀The mission of developing an ASP.NET Quick Start Template is to empower developers by providing a comprehensive, efficient, and user-friendly foundation for building robust web applications. This template aims to streamline the development process, enhance productivity, and ensure best practices are adhered to from the outset. Our commitment is to facilitate rapid development while maintaining high standards of code quality, security, and performance.
+🚀 The mission of developing our **ASP.NET & Angular Admin Template** is to empower developers with a comprehensive, efficient, and user-friendly foundation for building robust web applications. This template aims to streamline the development process, boost productivity, and ensure adherence to best practices from the outset. Our commitment is to facilitate rapid development while maintaining high standards of code quality, security, and performance.
 
 
 [LIVE DEMO](https://matechdemo.azurewebsites.net)
@@ -38,9 +38,18 @@ Client and Server solutions are designed to work separately by default.
 
 
 ## Deploy Database 
+To deploy the database, follow these steps:
 
-#### Connection String
-Open appsettings.json in QuickStart project and change the Default connection string if you want:
+## Open the Solution
+1. Navigate to the **QuickStart** folder.
+2. Locate the solution file.
+3. Open the solution file, which will automatically launch Visual Studio.
+
+ <img src="/img/18.png" />
+
+### Configure Connection String
+1. In the **QuickStart** project, open `appsettings.json`.
+2. Modify the default connection string if necessary:
 
     ```json
     {
@@ -50,20 +59,29 @@ Open appsettings.json in QuickStart project and change the Default connection st
     }
     ```
 
-### Migrations
+### Apply Migrations
+The application uses the Code First approach of Entity Framework Core. All migration code is located in the **QuickStart/Migrations** folder.
 
-Use Entity Framework Core's built-in tools for migrations. Open Package Manager Console in Visual Studio, set QuickStart as the Default Project and run the Update-Database command as shown below:
+1. Open the **Package Manager Console** in Visual Studio.
+2. Set **QuickStart** as the default project.
+3. Run the following command to update the database:
 
-<img src="/img/16.png" />
+    ```powershell
+    Update-Database
+    ```
 
-This command will create your database. Initial data will be inserted when you run the QuickStart project. You can open SQL Server Management Studio to check if database is created:
+  <img src="/img/16.png" />
 
-<img src="/img/11.png" />
+This will apply the migrations and set up your database. 
 
-You can use EF console commands for development and Migrator.exe for production. But notice that; Migrator.exe supports running migrations in multiple databases at once, which can be useful in development/production for multi tenant applications.
+After running the migrations, your database tables will be created as shown below:
+
+  <img src="/img/11.png" />
+
 
 ### Run API Host
-Once you've done the configuration, you can run the application. Server side application only contains APIs. When you start the application you will see a login page like below:
+
+Once you've configured the application, you can run the server-side application. The server-side application contains only APIs. The API is running on [https://localhost:5001](https://localhost:5001). Paste this URL into your browser to access the application and you will see the login page below:
 
 <img src="/img/17.png" />
 
@@ -105,11 +123,11 @@ To merge and host the Angular application inside the ASP.NET Core API, follow th
 
 1. **Build the Angular Application**:
     - Navigate to the `QuickStartUI` folder.
-    - Run `ng build --prod` to build the Angular application. This will create a `dist` folder containing the compiled Angular files.
+    - Run `ng build` to build the Angular application. This will create a `dist` folder containing the compiled Angular files.
 
 2. **Move Built Files to ASP.NET Core Project**:
     - Copy the contents of the `dist` folder.
-    - Paste these contents into a new folder named `wwwroot` inside the `QuickStart` folder. The `wwwroot` folder is the default location for static files in an ASP.NET Core application.
+    - Paste these contents into a new folder named `wwwroot` inside the `QuickStart/QuickStart/wwwroot` folder. The `wwwroot` folder is the default location for static files in an ASP.NET Core application.
 
 3. **Configure ASP.NET Core to Serve Angular App**:
     - Open the `Program.cs` file in the `QuickStart` folder.
